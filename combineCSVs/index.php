@@ -124,9 +124,13 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
                 if ($j === 0) {
                     if (!$hasHeaderRowBeenWritten) {
                         $hasHeaderRowBeenWritten = true;
+						echo "writing headers for test:\n";
                         for ($k =0; $k < count($row); $k++) {
                             $headers[] = $row[$k];
+							echo $row[$k] . "\n";
                         }
+						echo $row[$k] . "\n";
+						
                         $handleHeaders($headers);
                     }
                     for ($k = 0; $k < count($row); $k++) {
