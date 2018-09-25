@@ -56,9 +56,9 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
         $dateParts = explode('-', $procDate);
         $year = $dateParts[0];
         if(strlen($year) == 4){
-			header('content-type text/plain');
-			print_r(json_encode([$fields]));
-			exit;
+			// header('content-type text/plain');
+			// print_r(json_encode([$fields]));
+			// exit;
             $response = REDCap::saveData($projectId, 'json', json_encode([$fields]));
             $errors = $response['errors'];
 
