@@ -49,7 +49,7 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
 
         $fields = [];
         for ($i = 0; $i < count($headers); $i++) {
-            $fields[$headers[$i]] = $data[$i];
+            $fields[$headers[$i]] = $data[$i];d
         }
 
         $procDate = $fields['proc_date'];
@@ -110,7 +110,8 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
             $handleData(null, $headers, null, null);
         }
     };
-
+	
+	echo ('test');
     $hasHeaderRowBeenWritten = false;
     $headers = array();
     for ($i = 0; $i < $numFiles; $i++) {
@@ -124,9 +125,12 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
                 if ($j === 0) {
                     if (!$hasHeaderRowBeenWritten) {
                         $hasHeaderRowBeenWritten = true;
+						echo "found headers:\n\n";
                         for ($k =0; $k < count($row); $k++) {
                             $headers[] = $row[$k];
+							echo $row[$k] . "\n";
                         }
+						echo "\n";
                         $handleHeaders($headers);
                     }
                     for ($k = 0; $k < count($row); $k++) {
