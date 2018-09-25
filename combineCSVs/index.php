@@ -49,7 +49,7 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
 
         $fields = [];
         for ($i = 0; $i < count($headers); $i++) {
-            $fields[$headers[$i]] = $data[$i];d
+            $fields[$headers[$i]] = $data[$i];
         }
 
         $procDate = $fields['proc_date'];
@@ -110,8 +110,7 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
             $handleData(null, $headers, null, null);
         }
     };
-	
-	echo ('test');
+
     $hasHeaderRowBeenWritten = false;
     $headers = array();
     for ($i = 0; $i < $numFiles; $i++) {
@@ -125,12 +124,9 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
                 if ($j === 0) {
                     if (!$hasHeaderRowBeenWritten) {
                         $hasHeaderRowBeenWritten = true;
-						echo "found headers:\n\n";
                         for ($k =0; $k < count($row); $k++) {
                             $headers[] = $row[$k];
-							echo $row[$k] . "\n";
                         }
-						echo "\n";
                         $handleHeaders($headers);
                     }
                     for ($k = 0; $k < count($row); $k++) {
@@ -207,8 +203,7 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
     echo "</script>";
     echo "<form action='$postUrl' enctype='multipart/form-data' method='POST'>";
     echo "<p>Project: <select name='project_id'><option value=''></option>";
-    // $sql = "SELECT app_title, project_id FROM redcap_projects WHERE app_title LIKE 'ImPACT Ethiopia%' ORDER BY project_id";
-    $sql = "SELECT app_title, project_id FROM redcap_projects WHERE app_title LIKE 'Ethiopia%' ORDER BY project_id";
+    $sql = "SELECT app_title, project_id FROM redcap_projects WHERE app_title LIKE '%Ethiopia%' ORDER BY project_id";
     $q = db_query($sql);
     if ($error = db_error()) {
         echo "ERROR: $error<br>";
