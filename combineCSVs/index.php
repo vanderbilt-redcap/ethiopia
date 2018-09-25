@@ -71,9 +71,10 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
         }
 
         if (!empty($errors)) {
-            echo "The import failed on the file named '$filename' on line number $lineNumber with the following error(s):<br><br>";
-            var_dump($errors);
-            echo "<br><br>Previous files and lines were imported successfully.";
+			header("Content-Type: text/plain");
+            echo "The import failed on the file named '$filename' on line number $lineNumber with the following error(s):\n\n";
+            print_r($errors);
+            echo "\n\nPrevious files and lines were imported successfully.";
             die();
         }
 
