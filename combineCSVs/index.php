@@ -204,7 +204,7 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
     echo "</script>";
     echo "<form action='$postUrl' enctype='multipart/form-data' method='POST'>";
     echo "<p>Project: <select name='project_id'><option value=''></option>";
-    $sql = "SELECT app_title, project_id FROM redcap_projects WHERE app_title LIKE '%Ethiopia%' ORDER BY project_id";
+    $sql = "SELECT app_title, project_id FROM redcap_projects WHERE app_title LIKE '%ImPACT Ethiopia%' ORDER BY project_id";
     $q = db_query($sql);
     if ($error = db_error()) {
         echo "ERROR: $error<br>";

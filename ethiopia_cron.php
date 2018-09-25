@@ -6,19 +6,19 @@ define("NOAUTH", true);
 define("MOVED_PREPEND","automoved");
 require_once(dirname(dirname(dirname(__FILE__))) . "/redcap_connect.php");
 
+header('content-type: text/plain');
 echo "Ran Ethiopia DAG Cron at ".date("M-d-Y H:i:s")." by ".get_current_user()."\n";
 
-// $projects = array(47289,48727,48728,48729,48730,49705);
-$projects = array(1064);
-// $homeProjectId = "42231";
-$homeProjectId = "1065";
+$projects = array(83015,83016);
+// $projects = array(1064);
+$homeProjectId = "77075";
+// $homeProjectId = "1065";
 $homeEventId = "91872";
 $projectCount = 0;
 
 if(is_file(__DIR__."/config.php")) {
 	include_once("config.php");
 }
-
 foreach ($projects as $projectId) {
     $projectCount++;
     echo "$projectCount: Inspecting project $projectId\n";
@@ -26,10 +26,6 @@ foreach ($projects as $projectId) {
     # task: unassign from all DAGs after 28 days
     $recordDataShortTermPre = array();
     $recordDataShortTerm = array();
-
-    # long term is for research assistants to analyze in host projects
-    # task: move to mother project after 3 months (90 days)
-    $recordDataLongTerm = array();
 
     $sqlShortTerm = "SELECT d2.record,d2.field_name, d2.value
             FROM redcap_data d
@@ -54,6 +50,10 @@ foreach ($projects as $projectId) {
     }
     echo "$projectCount: $recordCount rows back for short term records\n";
 
+    # long term is for research assistants to analyze in host projects
+    # task: move to mother project after 3 months (90 days)
+    $recordDataLongTerm = array();
+	
     $sqlLongTerm = "SELECT record,field_name, value
             FROM redcap_data d
             WHERE d.project_id = $projectId
