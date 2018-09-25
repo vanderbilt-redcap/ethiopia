@@ -32,7 +32,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
-$projects = array(42231,47289,48727,48728,48729,48730,49705);
+$projects = array(42231,47289,48727,83015,83016,48728,48729,48730,49705);
 $foundRecords = array();
 foreach ($records as $record) {
     $query = "SELECT record FROM redcap_data WHERE project_id IN (".implode(", ", $projects).") AND record = '$record';";

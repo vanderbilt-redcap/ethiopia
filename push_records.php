@@ -10,7 +10,7 @@ $Core->Libraries(["ProjectSet","RecordSet"]);
 use \Plugin\RecordSet, \Plugin\ProjectSet, \Plugin\Project;
 
 const MASTER_PROJECT = 42231;
-const PROJECTS_TO_COPY = "48727,48728,48729,48730,49705,56875,56876";
+const PROJECTS_TO_COPY = "48727,83015,83016,48728,48729,48730,49705,56875,56876";
 
 $masterProject = new Project(MASTER_PROJECT);
 $childProjectSet = new ProjectSet(explode(",",PROJECTS_TO_COPY));

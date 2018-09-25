@@ -2,7 +2,7 @@
 
 require_once("../../redcap_connect.php");
 
-$projects = array(42231,47289,48727,48728,48729,48730,49705);
+$projects = array(42231,47289,48727,83015,83016,48728,48729,48730,49705);
 $totals = array();
 $titles = array();
 for ($i = 1; $i <= 31; $i++) {

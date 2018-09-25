@@ -2,7 +2,7 @@
 
 require_once("../../redcap_connect.php");
 
-$projects = array(42231,47289,48727,48728,48729,48730,49705);
+$projects = array(42231,47289,48727,83015,83016,48728,48729,48730,49705);
         $sql = "SELECT project_id FROM redcap_projects WHERE app_title LIKE 'ImPACT Africa Global Perioperative Outcomes%'";
         $q = db_query($sql);
         while ($row = db_fetch_assoc($q)) {
