@@ -204,16 +204,17 @@ if (isset($_GET['submit']) && (isset($_POST['project_id'])) && ($_POST['project_
     echo "<form action='$postUrl' enctype='multipart/form-data' method='POST'>";
     echo "<p>Project: <select name='project_id'><option value=''></option>";
     $sql = "SELECT app_title, project_id FROM redcap_projects WHERE app_title LIKE 'ImPACT Africa Global Perioperative Outcomes%' OR app_title LIKE 'ImPACT Ethiopia%' ORDER BY project_id";
-    $q = db_query($sql);
+	$q = db_query($sql);
     if ($error = db_error()) {
         echo "ERROR: $error<br>";
     }
-    while ($row = db_fetch_assoc($q)) {
-        echo "<option value='{$row['project_id']}'>";
-        echo $row['app_title'];
-        echo "</option>";
-    }
     echo "</select></p>";
+    while ($row = db_fetch_assoc($q)) {
+        // echo "<option value='{$row['project_id']}'>";
+        echo $row['app_title'] . "\n";
+        // echo "</option>";
+    }
+    // echo "</select></p>";
     for ($i = 0; $i < 25; $i++) {
         $style = "";
         if ($i > 0) {
