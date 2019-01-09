@@ -9,11 +9,15 @@ require_once(dirname(dirname(dirname(__FILE__))) . "/redcap_connect.php");
 header('content-type: text/plain');
 echo "Ran Ethiopia DAG Cron at ".date("M-d-Y H:i:s")." by ".get_current_user()."\n";
 
-$projects = array(83015,83016);
+# old values from the ImPACT Kenya plugin
 // $projects = array(1064);
+// $homeProjectId = "1065";	42231
+// $homeEventId = "91872";
+
+# needed values for Amhara/Tigray to ImPACT Ethiopia Global Perioperative Outcomes Mobile Version
+$projects = array(83015,83016);
 $homeProjectId = "77075";
-// $homeProjectId = "1065";
-$homeEventId = "91872";
+$homeEventId = "181075";
 $projectCount = 0;
 
 if(is_file(__DIR__."/config.php")) {
